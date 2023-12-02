@@ -103,6 +103,26 @@ namespace ARM_final.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_волнистая_линия_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-волнистая-линия-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_многоугольник_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-многоугольник-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap line_chart_516975 {
             get {
                 object obj = ResourceManager.GetObject("line-chart_516975", resourceCulture);

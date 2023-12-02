@@ -27,71 +27,78 @@ namespace ARM_final
         private void MainForm_Load(object sender, EventArgs e)
         {
             commands.Connection();
-            LoadBranches();
+            //LoadBranches();
             CenterToParent();
             //FreeVisits();
         }
-        private void LoadBranches()
-        {
-            treeView.Nodes.Clear();
-            DataTable dt = commands.GetData(@"select name, id from branches");
-            foreach (DataRow dr in dt.Rows)
-            {
-                string branchName = dr["name"].ToString();
-                var node = new TreeNode(branchName, 0, 0);
-                treeView.Nodes.Add(node);
-                node.Tag = dr["id"].ToString();
-                LoadVisits(node, (int)dr["id"]);
-            }
-        }
+        //private void LoadBranches()
+        //{
+        //    try
+        //    {
+        //        treeView.Nodes.Clear();
+        //        DataTable dt = commands.GetData(@"select name, id from branches");
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            string branchName = dr["name"].ToString();
+        //            var node = new TreeNode(branchName, 0, 0);
+        //            treeView.Nodes.Add(node);
+        //            node.Tag = dr["id"].ToString();
+        //            LoadVisits(node, (int)dr["id"]);
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //}
 
-        private void LoadVisits(TreeNode parent, int branch_id)
-        {
-            try
-            {
-                DataTable dt = commands.GetData(@"select v.id, m.name, m.surname from visits as v join master as m on m.id = v.master_id where branch_id = @branch_id; ", branch_id, "@branch_id");
-                foreach (DataRow dr in dt.Rows)
-                {
-                    string visitDate = $"Мастер: {dr["name"].ToString()} {dr["surname"].ToString()}";
-                    var node = new TreeNode(visitDate, 1, 1);
-                    parent.Nodes.Add(node);
-                    node.Tag = dr["id"].ToString();
-                    LoadServices(node, (int)dr["id"]);
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
+        //private void LoadVisits(TreeNode parent, int branch_id)
+        //{
+        //    try
+        //    {
+        //        DataTable dt = commands.GetData(@"select v.id, m.name, m.surname from visits as v join master as m on m.id = v.master_id where branch_id = @branch_id; ", branch_id, "@branch_id");
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            string visitDate = $"Мастер: {dr["name"].ToString()} {dr["surname"].ToString()}";
+        //            var node = new TreeNode(visitDate, 1, 1);
+        //            parent.Nodes.Add(node);
+        //            node.Tag = dr["id"].ToString();
+        //            LoadServices(node, (int)dr["id"]);
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //}
 
-        private void LoadServices(TreeNode parent, int visit_id)
-        {
-            try
-            {
-                DataTable dt = commands.GetData(@"select id, name from services where visit_id = @visit_id", visit_id, "visit_id");
-                foreach (DataRow dr in dt.Rows)
-                {
-                    string service = dr["name"].ToString();
-                    var node = new TreeNode(service, 2, 2);
-                    parent.Nodes.Add(node);
-                    node.Tag = dr["id"].ToString();
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
+        //private void LoadServices(TreeNode parent, int visit_id)
+        //{
+        //    try
+        //    {
+        //        DataTable dt = commands.GetData(@"select id, name from services where visit_id = @visit_id", visit_id, "visit_id");
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            string service = dr["name"].ToString();
+        //            var node = new TreeNode(service, 2, 2);
+        //            parent.Nodes.Add(node);
+        //            node.Tag = dr["id"].ToString();
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //}
 
-        //добавление новых клиентов/мастеров
-        private void добавитьToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            addAccounts addClients = new addAccounts();
-            addClients.Show();
-        }
+        ////добавление новых клиентов/мастеров
+        //private void добавитьToolStripMenuItem2_Click(object sender, EventArgs e)
+        //{
+        //    addAccounts addClients = new addAccounts();
+        //    addClients.Show();
+        //}
 
-        //редактирование новых клиентов/мастеров
+        ////редактирование новых клиентов/мастеров
 
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -139,26 +146,35 @@ namespace ARM_final
 
         private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            // Отрисовка текста элемента
-            e.DrawBackground();
-            bool isSelected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
-            using (Brush brush = new SolidBrush(isSelected ? Color.White : Color.Black))
+            try
             {
-                e.Graphics.DrawString(listBoxVisits.Items[e.Index].ToString(), e.Font, brush, e.Bounds);
-            }
+                if (listBoxVisits.Items.Count != 0)
+                {
+                    // Отрисовка текста элемента
+                    e.DrawBackground();
+                    bool isSelected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
+                    using (Brush brush = new SolidBrush(isSelected ? Color.White : Color.Black))
+                    {
+                        e.Graphics.DrawString(listBoxVisits.Items[e.Index].ToString(), e.Font, brush, e.Bounds);
+                    }
 
-            // Отрисовка разделителя
-            using (Pen pen = new Pen(Color.Gray, 1))
+                    // Отрисовка разделителя
+                    using (Pen pen = new Pen(Color.Gray, 1))
+                    {
+                        e.Graphics.DrawLine(pen, e.Bounds.Left, e.Bounds.Bottom - 1, e.Bounds.Right, e.Bounds.Bottom - 1);
+                    }
+
+                    e.DrawFocusRectangle();
+                }
+            }
+            catch (Exception ex)
             {
-                e.Graphics.DrawLine(pen, e.Bounds.Left, e.Bounds.Bottom - 1, e.Bounds.Right, e.Bounds.Bottom - 1);
+                MessageBox.Show(ex.Message);
             }
-
-            e.DrawFocusRectangle();
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            //int selectedId = listBox1.SelectedIndex;
             try
             {
                 int id;
@@ -182,6 +198,23 @@ namespace ARM_final
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SearchSql searchSql = new SearchSql();
+            searchSql.Show();
+        }
+
+        private void отчетToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelData.GetInfo();
+        }
+
+        private void добавитьToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            AddServices addServices = new AddServices();
+            addServices.Show();
         }
     }
 }

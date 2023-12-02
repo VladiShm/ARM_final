@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.1" />
+    <PackageReference Include="EPPlus" Version="7.0.2" />
     <PackageReference Include="Npgsql" Version="8.0.0" />
   </ItemGroup>
 

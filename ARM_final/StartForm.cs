@@ -43,6 +43,7 @@ namespace ARM_final
                             log = Autorization.login_a;
                             mainForm.listBoxVisits.Visible = false;
                             mainForm.btnSignUp.Visible = false;
+                            mainForm.labelFreeVisits.Visible = false;
                             mainForm.Show();
                             this.Hide();
                         }
@@ -54,8 +55,9 @@ namespace ARM_final
                             pass = Autorization.password_a;
                             log = Autorization.login_a;
                             //mainForm.lbCurrentVisits.Visible = false;
-                            mainForm.treeView.Visible = false;
+                            //mainForm.treeView.Visible = false;
                             mainForm.FreeVisits();
+                            mainForm.labelCurrVisits.Visible = false;
                             mainForm.êëèåíòûToolStripMenuItem.Visible = false;
                             mainForm.Show();
                             this.Hide();
