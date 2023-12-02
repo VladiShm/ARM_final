@@ -33,10 +33,11 @@ namespace ARM_final
             {
                 string command = "insert into accounts (login, password, id_role) values (@login, @password, @id_role)";
                 sqlCommands.Connection();
+                var p = Autorization.NewHash(Autorization.GenerateHash(textBoxPass.Text));
                 using (var cmd = new NpgsqlCommand(command, sqlCommands.strCon))
                 {
                     cmd.Parameters.AddWithValue("@login", textBoxLogin.Text);
-                    cmd.Parameters.AddWithValue("@password", Autorization.GenerateHash(textBoxPass.Text));
+                    cmd.Parameters.AddWithValue("@password", Autorization.NewHash(Autorization.GenerateHash(textBoxPass.Text)));
                     cmd.Parameters.AddWithValue("@id_role", (comboBoxRole.SelectedIndex + 1));
 
                     cmd.ExecuteNonQuery();
@@ -45,13 +46,14 @@ namespace ARM_final
                 whoIs = comboBoxRole.SelectedIndex + 1;
                 if (whoIs == 1)
                 {
-
+                    AddClient addClient = new AddClient();
+                    addClient.Show();
                 }
                 else
                 {
                     AddMaster addMaster = new AddMaster();
                     addMaster.Show();
-                    
+
                 }
                 this.Close();
             }
@@ -60,6 +62,16 @@ namespace ARM_final
                 MessageBox.Show("Произошла ошибка при добавлении пользователя");
                 this.Close();
             }
+        }
+
+        private void textBoxPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxLogin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

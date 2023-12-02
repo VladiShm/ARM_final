@@ -13,6 +13,7 @@ namespace ARM_final
     internal class Autorization
     {
         static public string role, login_a, password_a;
+        static public int acc_id = 0;
         
         //генерация хэша пароля
         public static string GenerateHash(string password)
@@ -24,16 +25,20 @@ namespace ARM_final
             return hash;
         }
 
+        public static string NewHash(string hash)
+        {
+            return GenerateHash(hash + "Звезда");
+        }
         static public void AutorizationMethod(string login, string password)
         {
             try
             {
                 role = password_a = login_a = null;
-                password = GenerateHash(password);
+                password = NewHash(GenerateHash(password));
                 SqlCommands commands = new SqlCommands();
                 commands.Connection();
                 NpgsqlDataReader result;
-                var command = "SELECT role, login, password from role join accounts on role.id = id_role WHERE login = @login and password = @password";
+                var command = "SELECT a.id, role, login, password from role join accounts as a on role.id = id_role WHERE login = @login and password = @password";
                 using (var cmd = new NpgsqlCommand(command, commands.strCon))
                 {
                     cmd.Parameters.AddWithValue("@login", login);
@@ -42,6 +47,7 @@ namespace ARM_final
                 }
                 if (result.Read())
                 {
+                    acc_id = int.Parse(result["id"].ToString());
                     role = result["role"].ToString();
                     login_a = result["login"].ToString();
                     password_a = result["Password"].ToString();
