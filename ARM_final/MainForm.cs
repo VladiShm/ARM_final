@@ -29,7 +29,7 @@ namespace ARM_final
             commands.Connection();
             //LoadBranches();
             CenterToParent();
-            //FreeVisits();
+            //Visits();
         }
         //private void LoadBranches()
         //{
@@ -173,6 +173,8 @@ namespace ARM_final
             }
         }
 
+
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             try
@@ -192,11 +194,13 @@ namespace ARM_final
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Вы записаны!");
                 }
+                listBoxVisits.Items.Clear();
+                FreeVisits();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Нет свободных записей!");
             }
         }
 
@@ -215,6 +219,92 @@ namespace ARM_final
         {
             AddServices addServices = new AddServices();
             addServices.Show();
+        }
+
+        private void buttonAddVisits_Click(object sender, EventArgs e)
+        {
+            AddVisits addVisits = new AddVisits();
+            addVisits.Show();
+        }
+
+        private void добавитьToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            addAccounts addAccounts = new addAccounts();
+            addAccounts.Show();
+        }
+
+        private void услугиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Visits()
+        {
+            try
+            {
+                DataTable dt = commands.GetData(@"select v.id, m.name, m.surname, address, date from visits as v join master as m on 
+                                            m.id = v.master_id join branches as b on b.id = v.branch_id 
+                                            where v.client_id is not null");
+                foreach (DataRow dr in dt.Rows)
+                {
+                    master = $"Мастер: {dr["name"].ToString()} {dr["surname"].ToString()}";
+                    branch = $"Арес: {dr["address"].ToString()}\n";
+                    time = $"Дата и время: {dr["date"].ToString()}";
+                    string info = $"{master}-{branch}-{time}";
+                    listBoxAddVisits.Items.Add(info);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        private void buttonReload_Click(object sender, EventArgs e)
+        {
+            listBoxAddVisits.Items.Clear();
+            listBoxVisits.Items.Clear();
+            Visits();
+            FreeVisits();
+        }
+
+        private void удалитьToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxAddVisits_DrawItem_1(object sender, DrawItemEventArgs e)
+        {
+
+        }
+
+        private void добавитьToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            AddBranch addBranch = new AddBranch();
+            addBranch.Show();
+        }
+
+        private void редактироватьToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            AddBranch addBranch = new AddBranch();
+            addBranch.Show();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxAddVisits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void удалитьToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            DeleteReloadForm deleteReloadForm = new DeleteReloadForm();
+            deleteReloadForm.Show();
+
         }
     }
 }

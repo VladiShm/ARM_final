@@ -28,23 +28,31 @@ namespace ARM_final
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            int price = 0;
+
             string command1 = "select max(id) + 1 from services";
             try
             {
                 commands.Connection();
-                string command2 = "insert into services (name) values (@name)";
+                price = int.Parse(textBoxPrice.Text);
+                string command2 = "insert into services (name, price) values (@name, @price)";
                 using (var cmd = new NpgsqlCommand(command2, commands.strCon))
                 {
-                   // cmd.Parameters.AddWithValue("@id", new_id);
                     cmd.Parameters.AddWithValue("@name", textBoxName.Text);
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Некорректно введена цена за услугу!");
+
             }
             this.Close();
+        }
+
+        private void textBoxPrice_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

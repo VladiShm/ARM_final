@@ -37,6 +37,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            buttonDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxAva).BeginInit();
             SuspendLayout();
             // 
@@ -54,9 +55,9 @@
             // 
             btnSaveChange.BackgroundImage = (Image)resources.GetObject("btnSaveChange.BackgroundImage");
             btnSaveChange.BackgroundImageLayout = ImageLayout.Stretch;
-            btnSaveChange.Location = new Point(523, 375);
+            btnSaveChange.Location = new Point(525, 383);
             btnSaveChange.Name = "btnSaveChange";
-            btnSaveChange.Size = new Size(64, 63);
+            btnSaveChange.Size = new Size(53, 51);
             btnSaveChange.TabIndex = 1;
             btnSaveChange.UseVisualStyleBackColor = true;
             btnSaveChange.Click += btnSaveChange_Click;
@@ -113,11 +114,23 @@
             label3.TabIndex = 8;
             label3.Text = "Телефон";
             // 
+            // buttonDelete
+            // 
+            buttonDelete.BackgroundImage = (Image)resources.GetObject("buttonDelete.BackgroundImage");
+            buttonDelete.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonDelete.Location = new Point(459, 385);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(60, 47);
+            buttonDelete.TabIndex = 9;
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
+            // 
             // PersonalArea
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(599, 450);
+            Controls.Add(buttonDelete);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -144,5 +157,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button buttonDelete;
     }
 }

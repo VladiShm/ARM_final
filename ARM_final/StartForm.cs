@@ -45,6 +45,7 @@ namespace ARM_final
                             mainForm.btnSignUp.Visible = false;
                             mainForm.labelFreeVisits.Visible = false;
                             mainForm.Show();
+                            mainForm.Visits();
                             this.Hide();
                         }
                         break;
@@ -54,9 +55,11 @@ namespace ARM_final
                             whoIs = "client";
                             pass = Autorization.password_a;
                             log = Autorization.login_a;
-                            //mainForm.lbCurrentVisits.Visible = false;
-                            //mainForm.treeView.Visible = false;
+                            mainForm.listBoxAddVisits.Visible = false; 
+                            mainForm.buttonAddVisits.Visible = false;
                             mainForm.FreeVisits();
+                            mainForm.Ò‡ÎÓÌ˚ToolStripMenuItem.Visible = false;
+                            mainForm.ÛÒÎÛ„ËToolStripMenuItem.Visible = false;
                             mainForm.labelCurrVisits.Visible = false;
                             mainForm.ÍÎËÂÌÚ˚ToolStripMenuItem.Visible = false;
                             mainForm.Show();

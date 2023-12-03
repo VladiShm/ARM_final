@@ -31,6 +31,8 @@
             label1 = new Label();
             textBoxName = new TextBox();
             buttonAdd = new Button();
+            labelPrice = new Label();
+            textBoxPrice = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -45,7 +47,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(29, 78);
+            textBoxName.Location = new Point(29, 68);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(264, 27);
             textBoxName.TabIndex = 1;
@@ -53,7 +55,7 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(288, 159);
+            buttonAdd.Location = new Point(188, 237);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(105, 39);
             buttonAdd.TabIndex = 2;
@@ -61,11 +63,31 @@
             buttonAdd.UseVisualStyleBackColor = true;
             buttonAdd.Click += buttonAdd_Click;
             // 
+            // labelPrice
+            // 
+            labelPrice.AutoSize = true;
+            labelPrice.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelPrice.Location = new Point(29, 134);
+            labelPrice.Name = "labelPrice";
+            labelPrice.Size = new Size(136, 28);
+            labelPrice.TabIndex = 3;
+            labelPrice.Text = " Цена услуги";
+            // 
+            // textBoxPrice
+            // 
+            textBoxPrice.Location = new Point(29, 174);
+            textBoxPrice.Name = "textBoxPrice";
+            textBoxPrice.Size = new Size(264, 27);
+            textBoxPrice.TabIndex = 4;
+            textBoxPrice.TextChanged += textBoxPrice_TextChanged;
+            // 
             // AddServices
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(405, 210);
+            ClientSize = new Size(321, 308);
+            Controls.Add(textBoxPrice);
+            Controls.Add(labelPrice);
             Controls.Add(buttonAdd);
             Controls.Add(textBoxName);
             Controls.Add(label1);
@@ -80,5 +102,7 @@
         private Label label1;
         private TextBox textBoxName;
         private Button buttonAdd;
+        private Label labelPrice;
+        private TextBox textBoxPrice;
     }
 }

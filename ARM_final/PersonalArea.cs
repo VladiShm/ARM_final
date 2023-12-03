@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,6 +86,24 @@ namespace ARM_final
                 this.Close();
             }
 
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Вы действительно хотите удалить свой аккаунт?", "Удалить аккаунт", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK)
+            {
+                string comm = "delete from accounts where id = @id";
+                using (var cmd = new NpgsqlCommand(comm, commands.strCon))
+                {
+                    cmd.Parameters.AddWithValue("id", Autorization.acc_id);
+                    cmd.ExecuteNonQuery();
+                }
+                foreach (Form form in Application.OpenForms)
+                {
+                    form.Close();
+                }
+            }
         }
     }
 }

@@ -103,6 +103,16 @@ namespace ARM_final.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap free_icon_reload_7382077 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-reload-7382077", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_волнистая_линия_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-волнистая-линия-100", resourceCulture);
@@ -116,6 +126,16 @@ namespace ARM_final.Properties {
         internal static System.Drawing.Bitmap icons8_многоугольник_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-многоугольник-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_удалить_80 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-удалить-80", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

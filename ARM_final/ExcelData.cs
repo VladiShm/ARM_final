@@ -20,7 +20,7 @@ namespace ARM_final
             try
             {
                 commands.Connection();
-                string command = "select m.name, m.surname, c.name, c.surname, address,  date from visits as v join master as m on " +
+                string command = "select m.name, m.surname, c.name, c.surname, address, b.phone, date from visits as v join master as m on " +
                     "m.id = v.master_id join branches as b on b.id = v.branch_id join client as c on c.id = v.client_id";
                 dataTable = new DataTable();
                 using (var cmd = new NpgsqlCommand(command, commands.strCon))
