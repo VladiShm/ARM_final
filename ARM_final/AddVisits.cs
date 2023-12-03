@@ -16,13 +16,16 @@ namespace ARM_final
     {
         static SqlCommands commands = new SqlCommands();
         List<int> client_id, master_id, branch_id, price, services_id;
-        List<DateTime> date;
+
         public AddVisits()
         {
             CenterToParent();
             InitializeComponent();
             dateTimePicker1.MinDate = DateTime.Now;
             dateTimePicker1.MaxDate = DateTime.Now.AddMonths(1);
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm";
+            dateTimePicker1.ShowUpDown = true;
             LoadInfo();
         }
 
@@ -36,7 +39,6 @@ namespace ARM_final
             master_id = new List<int>();
             client_id = new List<int>();
             branch_id = new List<int>();
-            date = new List<DateTime>();
             services_id = new List<int>();
             price = new List<int>();
 
@@ -111,38 +113,45 @@ namespace ARM_final
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            int next_id = 1;
-            string comm0 = "select max(id) from visits";
-            using (var cmd = new NpgsqlCommand(comm0, commands.strCon))
+            try
             {
-                if (cmd.ExecuteScalar() != DBNull.Value)
+                int next_id = 1;
+                string comm0 = "select max(id) from visits";
+                using (var cmd = new NpgsqlCommand(comm0, commands.strCon))
                 {
-                    next_id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+                    if (cmd.ExecuteScalar() != DBNull.Value)
+                    {
+                        next_id = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+                    }
                 }
-            }
 
-            string comm;
-            if (comboBoxClient.SelectedItem == "Свободная запись")
-            {
-                comm = "insert into visits (id, master_id, branch_id, servieces_id) values (@id, @master_id, @branch_id, @servieces_id)";
-            }
-            else
-            {
-                comm = "insert into visits (id, client_id, master_id, branch_id, servieces_id) values (@id, @client_id, @master_id, @branch_id, @servieces_id)";
-            }
-            using (var cmd = new NpgsqlCommand(comm, commands.strCon))
-            {
-                cmd.Parameters.AddWithValue("id", next_id);
-                if (comboBoxClient.SelectedItem != "Свободная запись")
+                string comm;
+                if (comboBoxClient.SelectedItem == "Свободная запись")
                 {
-                    cmd.Parameters.AddWithValue("client_id", client_id[comboBoxClient.SelectedIndex]);
+                    comm = "insert into visits (id, master_id, date, branch_id, servieces_id) values (@id, @master_id, @date, @branch_id, @servieces_id)";
                 }
-            
-                cmd.Parameters.AddWithValue("master_id", master_id[comboBoxMaster.SelectedIndex]);
-               // cmd.Parameters.AddWithValue("date", dateTimePicker1.Value);
-                cmd.Parameters.AddWithValue("branch_id", branch_id[comboBoxAdress.SelectedIndex]);
-                cmd.Parameters.AddWithValue("servieces_id", services_id[comboBoxServ.SelectedIndex]);
-                cmd.ExecuteNonQuery();
+                else
+                {
+                    comm = "insert into visits (id, client_id, master_id, date, branch_id, servieces_id) values (@id, @client_id, @master_id, @date, @branch_id, @servieces_id)";
+                }
+                using (var cmd = new NpgsqlCommand(comm, commands.strCon))
+                {
+                    cmd.Parameters.AddWithValue("id", next_id);
+                    if (comboBoxClient.SelectedItem != "Свободная запись")
+                    {
+                        cmd.Parameters.AddWithValue("client_id", client_id[comboBoxClient.SelectedIndex]);
+                    }
+
+                    cmd.Parameters.AddWithValue("master_id", master_id[comboBoxMaster.SelectedIndex]);
+                    cmd.Parameters.AddWithValue("date", dateTimePicker1.Value.ToString());
+                    cmd.Parameters.AddWithValue("branch_id", branch_id[comboBoxAdress.SelectedIndex]);
+                    cmd.Parameters.AddWithValue("servieces_id", services_id[comboBoxServ.SelectedIndex]);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             this.Close();
         }

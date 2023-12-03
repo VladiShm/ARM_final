@@ -32,7 +32,7 @@ namespace ARM_final
                 using (ExcelPackage package = new ExcelPackage())
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
-                    string[] columnNames = { "Имя мастера", "Фамилия мастера", "Имя клиента", "Фамилия клиента", "Адрес", "Дата" };
+                    string[] columnNames = { "Имя мастера", "Фамилия мастера", "Имя клиента", "Фамилия клиента", "Адрес", "Телефон салона", "Дата" };
                     for (int i = 0; i < dataTable.Columns.Count; i++)
                     {
                         worksheet.Cells[1, i + 1].Value = columnNames[i];

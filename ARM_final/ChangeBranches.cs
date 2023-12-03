@@ -14,6 +14,7 @@ namespace ARM_final
     public partial class ChangeBranches : Form
     {
         SqlCommands commands = new SqlCommands();
+        string old_name;
         public ChangeBranches()
         {
             InitializeComponent();
@@ -25,9 +26,7 @@ namespace ARM_final
         {
             try
             {
-                string old_name = textBoxName.Text;
-                string old_address = textBoxAddress.Text;
-                string old_phone = textBoxPhone.Text;
+                
                 string sql = $"UPDATE branches SET name = @name, address = @address, phone = @phone WHERE name = @old_name";
                 commands.Connection();
                 using (var cmd = new NpgsqlCommand(sql, commands.strCon))
@@ -66,6 +65,7 @@ namespace ARM_final
                         textBoxName.Text = DeleteReloadForm.name;
                         textBoxPhone.Text = item["phone"].ToString();
                     }
+                    old_name = textBoxName.Text;
                 }
             }
             catch (Exception ex)

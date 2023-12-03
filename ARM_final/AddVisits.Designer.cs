@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddVisits));
             comboBoxClient = new ComboBox();
             comboBoxServ = new ComboBox();
             comboBoxAdress = new ComboBox();
@@ -39,12 +40,14 @@
             dateTimePicker1 = new DateTimePicker();
             labelDate = new Label();
             buttonAdd = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // comboBoxClient
             // 
             comboBoxClient.FormattingEnabled = true;
-            comboBoxClient.Location = new Point(264, 59);
+            comboBoxClient.Location = new Point(271, 74);
             comboBoxClient.Name = "comboBoxClient";
             comboBoxClient.Size = new Size(221, 28);
             comboBoxClient.TabIndex = 4;
@@ -53,7 +56,7 @@
             // comboBoxServ
             // 
             comboBoxServ.FormattingEnabled = true;
-            comboBoxServ.Location = new Point(264, 239);
+            comboBoxServ.Location = new Point(271, 254);
             comboBoxServ.Name = "comboBoxServ";
             comboBoxServ.Size = new Size(221, 28);
             comboBoxServ.TabIndex = 5;
@@ -62,7 +65,7 @@
             // comboBoxAdress
             // 
             comboBoxAdress.FormattingEnabled = true;
-            comboBoxAdress.Location = new Point(264, 183);
+            comboBoxAdress.Location = new Point(271, 198);
             comboBoxAdress.Name = "comboBoxAdress";
             comboBoxAdress.Size = new Size(221, 28);
             comboBoxAdress.TabIndex = 7;
@@ -70,7 +73,7 @@
             // comboBoxMaster
             // 
             comboBoxMaster.FormattingEnabled = true;
-            comboBoxMaster.Location = new Point(264, 121);
+            comboBoxMaster.Location = new Point(271, 136);
             comboBoxMaster.Name = "comboBoxMaster";
             comboBoxMaster.Size = new Size(221, 28);
             comboBoxMaster.TabIndex = 8;
@@ -79,7 +82,7 @@
             // 
             labelClient.AutoSize = true;
             labelClient.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelClient.Location = new Point(109, 56);
+            labelClient.Location = new Point(116, 71);
             labelClient.Name = "labelClient";
             labelClient.Size = new Size(82, 28);
             labelClient.TabIndex = 9;
@@ -89,7 +92,7 @@
             // 
             labelMaster.AutoSize = true;
             labelMaster.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelMaster.Location = new Point(109, 121);
+            labelMaster.Location = new Point(116, 136);
             labelMaster.Name = "labelMaster";
             labelMaster.Size = new Size(81, 28);
             labelMaster.TabIndex = 11;
@@ -99,7 +102,7 @@
             // 
             labelAdress.AutoSize = true;
             labelAdress.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelAdress.Location = new Point(109, 180);
+            labelAdress.Location = new Point(116, 195);
             labelAdress.Name = "labelAdress";
             labelAdress.Size = new Size(80, 28);
             labelAdress.TabIndex = 12;
@@ -109,7 +112,7 @@
             // 
             labelServices.AutoSize = true;
             labelServices.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelServices.Location = new Point(109, 236);
+            labelServices.Location = new Point(116, 251);
             labelServices.Name = "labelServices";
             labelServices.Size = new Size(77, 28);
             labelServices.TabIndex = 13;
@@ -117,7 +120,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(264, 305);
+            dateTimePicker1.Location = new Point(271, 314);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(221, 27);
             dateTimePicker1.TabIndex = 15;
@@ -127,7 +130,7 @@
             // 
             labelDate.AutoSize = true;
             labelDate.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelDate.Location = new Point(118, 304);
+            labelDate.Location = new Point(125, 313);
             labelDate.Name = "labelDate";
             labelDate.Size = new Size(56, 28);
             labelDate.TabIndex = 16;
@@ -135,7 +138,7 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(331, 419);
+            buttonAdd.Location = new Point(281, 375);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(154, 46);
             buttonAdd.TabIndex = 17;
@@ -143,11 +146,23 @@
             buttonAdd.UseVisualStyleBackColor = true;
             buttonAdd.Click += buttonAdd_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 28);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(73, 74);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
+            // 
             // AddVisits
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(596, 539);
+            BackColor = Color.Thistle;
+            ClientSize = new Size(515, 474);
+            Controls.Add(pictureBox1);
             Controls.Add(buttonAdd);
             Controls.Add(labelDate);
             Controls.Add(dateTimePicker1);
@@ -161,6 +176,7 @@
             Controls.Add(comboBoxClient);
             Name = "AddVisits";
             Text = "AddVisits";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,5 +193,6 @@
         private DateTimePicker dateTimePicker1;
         private Label labelDate;
         private Button buttonAdd;
+        private PictureBox pictureBox1;
     }
 }

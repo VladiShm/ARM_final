@@ -123,6 +123,16 @@ namespace ARM_final.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_волнистая_линия_96__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-волнистая-линия-96 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_многоугольник_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-многоугольник-96", resourceCulture);

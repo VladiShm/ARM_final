@@ -38,7 +38,6 @@
             menuStrip1 = new MenuStrip();
             клиентыToolStripMenuItem = new ToolStripMenuItem();
             добавитьToolStripMenuItem2 = new ToolStripMenuItem();
-            удалитьToolStripMenuItem2 = new ToolStripMenuItem();
             отчетToolStripMenuItem = new ToolStripMenuItem();
             услугиToolStripMenuItem = new ToolStripMenuItem();
             добавитьToolStripMenuItem3 = new ToolStripMenuItem();
@@ -121,7 +120,7 @@
             // 
             // клиентыToolStripMenuItem
             // 
-            клиентыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem2, удалитьToolStripMenuItem2, отчетToolStripMenuItem });
+            клиентыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem2, отчетToolStripMenuItem });
             клиентыToolStripMenuItem.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
             клиентыToolStripMenuItem.Size = new Size(86, 27);
@@ -133,12 +132,6 @@
             добавитьToolStripMenuItem2.Size = new Size(170, 28);
             добавитьToolStripMenuItem2.Text = "Добавить";
             добавитьToolStripMenuItem2.Click += добавитьToolStripMenuItem2_Click;
-            // 
-            // удалитьToolStripMenuItem2
-            // 
-            удалитьToolStripMenuItem2.Name = "удалитьToolStripMenuItem2";
-            удалитьToolStripMenuItem2.Size = new Size(170, 28);
-            удалитьToolStripMenuItem2.Text = "Удалить";
             // 
             // отчетToolStripMenuItem
             // 
@@ -192,6 +185,7 @@
             // 
             // listBoxVisits
             // 
+            listBoxVisits.BackColor = SystemColors.ControlLight;
             listBoxVisits.DrawMode = DrawMode.OwnerDrawFixed;
             listBoxVisits.FormattingEnabled = true;
             listBoxVisits.ItemHeight = 20;
@@ -215,7 +209,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(773, 34);
+            pictureBox1.Location = new Point(761, 45);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(47, 44);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -266,12 +260,12 @@
             // listBoxAddVisits
             // 
             listBoxAddVisits.BackColor = SystemColors.ControlLight;
-            listBoxAddVisits.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            listBoxAddVisits.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             listBoxAddVisits.FormattingEnabled = true;
-            listBoxAddVisits.ItemHeight = 23;
-            listBoxAddVisits.Location = new Point(12, 97);
+            listBoxAddVisits.ItemHeight = 20;
+            listBoxAddVisits.Location = new Point(12, 103);
             listBoxAddVisits.Name = "listBoxAddVisits";
-            listBoxAddVisits.Size = new Size(598, 510);
+            listBoxAddVisits.Size = new Size(598, 504);
             listBoxAddVisits.TabIndex = 11;
             listBoxAddVisits.DrawItem += listBoxAddVisits_DrawItem_1;
             listBoxAddVisits.SelectedIndexChanged += listBoxAddVisits_SelectedIndexChanged;
@@ -412,7 +406,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem добавитьToolStripMenuItem2;
         public ToolStripMenuItem клиентыToolStripMenuItem;
-        private ToolStripMenuItem удалитьToolStripMenuItem2;
         private ListBox listBox1;
         private PictureBox pictureBox1;
         public Button btnSignUp;

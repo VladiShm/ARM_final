@@ -78,6 +78,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(117, 217);
             label1.Name = "label1";
             label1.Size = new Size(110, 20);
@@ -87,6 +88,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(117, 342);
             label2.Name = "label2";
             label2.Size = new Size(120, 20);
@@ -174,6 +176,7 @@
             Controls.Add(button1);
             Controls.Add(tbPassword);
             Controls.Add(tbLogin);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "StartForm";
             Text = "Form1";
             Load += Form1_Load;

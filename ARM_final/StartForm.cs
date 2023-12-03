@@ -55,7 +55,7 @@ namespace ARM_final
                             whoIs = "client";
                             pass = Autorization.password_a;
                             log = Autorization.login_a;
-                            mainForm.listBoxAddVisits.Visible = false; 
+                            mainForm.listBoxAddVisits.Visible = false;
                             mainForm.buttonAddVisits.Visible = false;
                             mainForm.FreeVisits();
                             mainForm.Ò‡ÎÓÌ˚ToolStripMenuItem.Visible = false;

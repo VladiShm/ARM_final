@@ -1,6 +1,6 @@
 ﻿namespace ARM_final
 {
-    partial class DeleteReloadForm
+    partial class DeleteServieces
     {
         /// <summary>
         /// Required designer variable.
@@ -28,58 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
             comboBox1 = new ComboBox();
             buttonDelete = new Button();
-            buttonReload = new Button();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(25, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(77, 28);
+            label1.TabIndex = 0;
+            label1.Text = "Услуга";
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(44, 66);
+            comboBox1.Location = new Point(25, 75);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(248, 28);
-            comboBox1.TabIndex = 0;
+            comboBox1.Size = new Size(260, 28);
+            comboBox1.TabIndex = 1;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // buttonDelete
             // 
-            buttonDelete.Location = new Point(24, 128);
+            buttonDelete.Location = new Point(176, 165);
             buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(131, 46);
-            buttonDelete.TabIndex = 1;
+            buttonDelete.Size = new Size(109, 43);
+            buttonDelete.TabIndex = 2;
             buttonDelete.Text = "Удалить";
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
             // 
-            // buttonReload
-            // 
-            buttonReload.Location = new Point(176, 128);
-            buttonReload.Name = "buttonReload";
-            buttonReload.Size = new Size(130, 46);
-            buttonReload.TabIndex = 2;
-            buttonReload.Text = "Редактировать";
-            buttonReload.UseVisualStyleBackColor = true;
-            buttonReload.Click += buttonReload_Click;
-            // 
-            // DeleteReloadForm
+            // DeleteServieces
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(344, 237);
-            Controls.Add(buttonReload);
+            ClientSize = new Size(313, 230);
             Controls.Add(buttonDelete);
             Controls.Add(comboBox1);
-            Name = "DeleteReloadForm";
-            Text = "DeleteReloadForm";
-            Load += DeleteReloadForm_Load;
+            Controls.Add(label1);
+            Name = "DeleteServieces";
+            Text = "DeleteServieces";
+            Load += DeleteServieces_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
+        private Label label1;
         private ComboBox comboBox1;
         private Button buttonDelete;
-        private Button buttonReload;
     }
 }

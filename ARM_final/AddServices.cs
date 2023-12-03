@@ -39,6 +39,7 @@ namespace ARM_final
                 using (var cmd = new NpgsqlCommand(command2, commands.strCon))
                 {
                     cmd.Parameters.AddWithValue("@name", textBoxName.Text);
+                    cmd.Parameters.AddWithValue("@price", price);
                     cmd.ExecuteNonQuery();
                 }
             }

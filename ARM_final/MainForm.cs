@@ -117,9 +117,9 @@ namespace ARM_final
                 {
                     idFreeVisits.Add(int.Parse(dr["id"].ToString()));
                     master = $"Мастер: {dr["name"].ToString()} {dr["surname"].ToString()}";
-                    branch = $"Арес: {dr["address"].ToString()}\n";
+                    branch = $"Арес: {dr["address"].ToString()}";
                     time = $"Дата и время: {dr["date"].ToString()}";
-                    string info = $"{master}-{branch}-{time}";
+                    string info = $"{master} ║ {branch} ║ {time}";
                     listBoxVisits.Items.Add(info);
                 }
             }
@@ -248,9 +248,9 @@ namespace ARM_final
                 foreach (DataRow dr in dt.Rows)
                 {
                     master = $"Мастер: {dr["name"].ToString()} {dr["surname"].ToString()}";
-                    branch = $"Арес: {dr["address"].ToString()}\n";
+                    branch = $"Арес: {dr["address"].ToString()}";
                     time = $"Дата и время: {dr["date"].ToString()}";
-                    string info = $"{master}-{branch}-{time}";
+                    string info = $"{master} ║ {branch} ║ {time}";
                     listBoxAddVisits.Items.Add(info);
                 }
             }
@@ -270,7 +270,8 @@ namespace ARM_final
 
         private void удалитьToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-
+            DeleteServieces deleteServieces = new DeleteServieces();
+            deleteServieces.Show();
         }
 
         private void listBoxAddVisits_DrawItem_1(object sender, DrawItemEventArgs e)
