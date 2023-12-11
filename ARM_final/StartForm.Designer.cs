@@ -64,6 +64,7 @@
             tbPassword.Name = "tbPassword";
             tbPassword.Size = new Size(257, 40);
             tbPassword.TabIndex = 1;
+            tbPassword.TextChanged += tbPassword_TextChanged;
             // 
             // button1
             // 

@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿using DocumentFormat.OpenXml.Office.Word;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +30,7 @@ namespace ARM_final
                 {
                     listBoxFields.Items.Add(dr["translate"].ToString());
                 }
+                CenterToParent();
             }
             catch (Exception ex)
             {
@@ -76,7 +79,7 @@ namespace ARM_final
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
             comboBox1.Items.Clear();
-            foreach (var i in listBoxFieldsRes.Items)
+            foreach (var i in listBoxFields.Items)
             {
                 comboBox1.Items.Add(i);
             }
@@ -89,6 +92,17 @@ namespace ARM_final
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox3.Items.Clear();
+            comboBox2.Items.Clear();
+            comboBox2.Items.Add("=");
+            comboBox2.Items.Add("<>");
+            if (comboBox1.SelectedItem.ToString() == "Оценка" || comboBox1.SelectedItem.ToString() == "Дата" || comboBox1.SelectedItem.ToString() == "Цена")
+            {
+                comboBox2.Items.Add("<");
+                comboBox2.Items.Add("<=");
+                comboBox2.Items.Add(">");
+                comboBox2.Items.Add(">=");
+            }
             string com1 = "select column_name, table_name from metadata where translate = @translate";
             string column_name = "";
             string table_name = "";
@@ -104,7 +118,9 @@ namespace ARM_final
                 {
                     column_name = item["column_name"].ToString();
                     table_name = item["table_name"].ToString();
+                    // comboBox3.Items.Add(item[$"{column_name}"].ToString());
                 }
+
             }
 
             string com2 = $"select {column_name} from {table_name}";
@@ -120,8 +136,6 @@ namespace ARM_final
                 }
             }
 
-
-
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -133,41 +147,72 @@ namespace ARM_final
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            DataTable data = new DataTable();
-            foreach (ListViewItem row in listView1.Items)
+
+            DataTable dt3 = new DataTable();
+            string param = "";
+            foreach (var it in listBoxFieldsRes.Items)
             {
-                string column_name = "";
-                string table_name = "";
-                string com1 = "select column_name, table_name from metadata where translate = @translate";
-                DataTable dt = new DataTable();
-                using (var cmd = new NpgsqlCommand(com1, commands.strCon))
+                string com3 = "select column_name, table_name from metadata where translate = @translate";
+                using (var cmd = new NpgsqlCommand(com3, commands.strCon))
                 {
-                    cmd.Parameters.AddWithValue("translate", row.SubItems[0].Text);
+                    cmd.Parameters.AddWithValue("translate", it);
                     NpgsqlDataReader dr = cmd.ExecuteReader();
-                    dt.Load(dr);
-                    foreach (DataRow item in dt.Rows)
+                    if (dr.Read())
                     {
-                        column_name = item["column_name"].ToString();
-                        table_name = item["table_name"].ToString();
+                        param += $"{dr["table_name"].ToString()[0]}.{dr["column_name"].ToString()},";
+
                     }
+                    dr.Close();
                 }
-       
-                string com2 = $"select {column_name} from {table_name} where {column_name} {comboBox2.SelectedItem} @param";
-                DataTable dt2 = new DataTable();
-                using (var cmd = new NpgsqlCommand(com2, commands.strCon))
-                {
-                    cmd.Parameters.AddWithValue("param", comboBox3.SelectedItem);
-                    NpgsqlDataReader dr = cmd.ExecuteReader();
-                    dt2.Load(dr);
-                }
-                data.Merge(dt2);
-                //foreach (DataRow i in dt2.Rows)
-                //{
-                //    data.Rows.Add(i.ItemArray[0]);
-                //}
             }
-            dataGridView1.DataSource = data;
+            param = param.Substring(0, param.Length - 1);
+            string com1;
+            DataTable data = new DataTable();
+            if (listView1.Items.Count > 0)
+            {
+                com1 = $"select {param} from visits as v join master as m on m.id = v.master_id join client as c on c.id = v.client_id join branches as b on b.id = v.branch_id join services as s on v.servieces_id = s.id where ";
+            }
+            else
+            {
+                com1 = $"select {param} from visits as v join master as m on m.id = v.master_id join client as c on c.id = v.client_id join branches as b on b.id = v.branch_id join services as s on v.servieces_id = s.id ";
+            }
+
+            int count = 0;
+            foreach (ListViewItem i in listView1.Items)
+            {
+                DataTable dt2 = new DataTable();
+                NpgsqlDataReader dr;
+                string com = "select column_name, table_name from metadata where translate = @translate";
+                using (var cmd = new NpgsqlCommand(com, commands.strCon))
+                {
+                    cmd.Parameters.AddWithValue("translate", i.SubItems[0].Text);
+                    dr = cmd.ExecuteReader();
+                    dt2.Load(dr);
+                    foreach (DataRow el in dt2.Rows)
+                    {
+                        if (count == listView1.Items.Count - 1)
+                            com1 += $" {el["table_name"].ToString()[0]}.{el["column_name"].ToString()} {i.SubItems[1].Text} '{i.SubItems[2].Text}'";
+                        else
+                        {
+                            com1 += $" {el["table_name"].ToString()[0]}.{el["column_name"].ToString()} {i.SubItems[1].Text} '{i.SubItems[2].Text}' {i.SubItems[3].Text} ";
+                        }
+                    }
+
+                }
+                count++;
+            }
+
+            DataTable dt = new DataTable();
+            using (var cmd = new NpgsqlCommand(com1, commands.strCon))
+            {
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                dt.Load(dr);
+                textBox1.Text = com1;
+            }
+            dataGridView1.DataSource = dt;
 
         }
+
+
     }
 }

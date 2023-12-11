@@ -84,5 +84,10 @@ namespace ARM_final
         {
 
         }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

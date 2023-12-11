@@ -249,9 +249,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(798, 674);
+            button1.Location = new Point(680, 634);
             button1.Name = "button1";
-            button1.Size = new Size(10, 10);
+            button1.Size = new Size(128, 50);
             button1.TabIndex = 10;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             listBoxAddVisits.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             listBoxAddVisits.FormattingEnabled = true;
             listBoxAddVisits.ItemHeight = 20;
-            listBoxAddVisits.Location = new Point(12, 103);
+            listBoxAddVisits.Location = new Point(12, 121);
             listBoxAddVisits.Name = "listBoxAddVisits";
             listBoxAddVisits.Size = new Size(598, 504);
             listBoxAddVisits.TabIndex = 11;
@@ -272,7 +272,7 @@
             // 
             // buttonAddVisits
             // 
-            buttonAddVisits.Location = new Point(12, 627);
+            buttonAddVisits.Location = new Point(12, 646);
             buttonAddVisits.Name = "buttonAddVisits";
             buttonAddVisits.Size = new Size(159, 47);
             buttonAddVisits.TabIndex = 12;
