@@ -117,6 +117,7 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Условия";
             tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Click += tabPage2_Click;
             // 
             // label1
             // 
@@ -198,6 +199,7 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(92, 28);
             comboBox2.TabIndex = 1;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // comboBox1
             // 
@@ -283,6 +285,7 @@
             listBoxFields.Name = "listBoxFields";
             listBoxFields.Size = new Size(286, 404);
             listBoxFields.TabIndex = 0;
+            listBoxFields.SelectedIndexChanged += listBoxFields_SelectedIndexChanged;
             // 
             // tabControl1
             // 

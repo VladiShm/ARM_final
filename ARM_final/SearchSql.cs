@@ -213,6 +213,19 @@ namespace ARM_final
 
         }
 
+        private void listBoxFields_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
