@@ -40,6 +40,7 @@
             клиентыToolStripMenuItem = new ToolStripMenuItem();
             добавитьToolStripMenuItem2 = new ToolStripMenuItem();
             отчетToolStripMenuItem = new ToolStripMenuItem();
+            удалитьЧеловекаToolStripMenuItem = new ToolStripMenuItem();
             услугиToolStripMenuItem = new ToolStripMenuItem();
             добавитьToolStripMenuItem3 = new ToolStripMenuItem();
             удалитьToolStripMenuItem3 = new ToolStripMenuItem();
@@ -48,6 +49,8 @@
             удалитьToolStripMenuItem4 = new ToolStripMenuItem();
             нестандарныеЗапросыToolStripMenuItem = new ToolStripMenuItem();
             listBoxVisits = new ListBox();
+            contextMenuStrip2 = new ContextMenuStrip(components);
+            удалитьToolStripMenuItem2 = new ToolStripMenuItem();
             btnSignUp = new Button();
             pictureBox1 = new PictureBox();
             labelCurrVisits = new Label();
@@ -55,14 +58,12 @@
             listBoxAddVisits = new ListBox();
             buttonAddVisits = new Button();
             buttonReload = new Button();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            запиToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             listBoxMyServ = new ListBox();
             label2 = new Label();
             menuStrip1.SuspendLayout();
+            contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // добавитьToolStripMenuItem
@@ -107,13 +108,13 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { клиентыToolStripMenuItem, услугиToolStripMenuItem, салоныToolStripMenuItem, нестандарныеЗапросыToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1017, 31);
+            menuStrip1.Size = new Size(1244, 31);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // клиентыToolStripMenuItem
             // 
-            клиентыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem2, отчетToolStripMenuItem });
+            клиентыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { добавитьToolStripMenuItem2, отчетToolStripMenuItem, удалитьЧеловекаToolStripMenuItem });
             клиентыToolStripMenuItem.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
             клиентыToolStripMenuItem.Size = new Size(86, 27);
@@ -122,16 +123,23 @@
             // добавитьToolStripMenuItem2
             // 
             добавитьToolStripMenuItem2.Name = "добавитьToolStripMenuItem2";
-            добавитьToolStripMenuItem2.Size = new Size(170, 28);
-            добавитьToolStripMenuItem2.Text = "Добавить";
+            добавитьToolStripMenuItem2.Size = new Size(248, 28);
+            добавитьToolStripMenuItem2.Text = "Добавить человека";
             добавитьToolStripMenuItem2.Click += добавитьToolStripMenuItem2_Click;
             // 
             // отчетToolStripMenuItem
             // 
             отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
-            отчетToolStripMenuItem.Size = new Size(170, 28);
+            отчетToolStripMenuItem.Size = new Size(248, 28);
             отчетToolStripMenuItem.Text = "Отчет";
             отчетToolStripMenuItem.Click += отчетToolStripMenuItem_Click;
+            // 
+            // удалитьЧеловекаToolStripMenuItem
+            // 
+            удалитьЧеловекаToolStripMenuItem.Name = "удалитьЧеловекаToolStripMenuItem";
+            удалитьЧеловекаToolStripMenuItem.Size = new Size(248, 28);
+            удалитьЧеловекаToolStripMenuItem.Text = "Удалить человека";
+            удалитьЧеловекаToolStripMenuItem.Click += удалитьЧеловекаToolStripMenuItem_Click;
             // 
             // услугиToolStripMenuItem
             // 
@@ -186,15 +194,30 @@
             // listBoxVisits
             // 
             listBoxVisits.BackColor = SystemColors.ControlLight;
+            listBoxVisits.ContextMenuStrip = contextMenuStrip2;
             listBoxVisits.DrawMode = DrawMode.OwnerDrawFixed;
             listBoxVisits.FormattingEnabled = true;
             listBoxVisits.ItemHeight = 20;
             listBoxVisits.Location = new Point(30, 118);
             listBoxVisits.Name = "listBoxVisits";
-            listBoxVisits.Size = new Size(482, 504);
+            listBoxVisits.Size = new Size(632, 484);
             listBoxVisits.TabIndex = 3;
             listBoxVisits.DrawItem += listBox1_DrawItem;
             listBoxVisits.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // contextMenuStrip2
+            // 
+            contextMenuStrip2.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { удалитьToolStripMenuItem2 });
+            contextMenuStrip2.Name = "contextMenuStrip2";
+            contextMenuStrip2.Size = new Size(135, 28);
+            // 
+            // удалитьToolStripMenuItem2
+            // 
+            удалитьToolStripMenuItem2.Name = "удалитьToolStripMenuItem2";
+            удалитьToolStripMenuItem2.Size = new Size(134, 24);
+            удалитьToolStripMenuItem2.Text = "Удалить";
+            удалитьToolStripMenuItem2.Click += удалитьToolStripMenuItem2_Click;
             // 
             // btnSignUp
             // 
@@ -211,7 +234,7 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.Снимок_экрана_2023_12_15_193020;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(947, 40);
+            pictureBox1.Location = new Point(1174, 40);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(58, 57);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -242,10 +265,11 @@
             // listBoxAddVisits
             // 
             listBoxAddVisits.BackColor = SystemColors.ControlLight;
+            listBoxAddVisits.ContextMenuStrip = contextMenuStrip2;
             listBoxAddVisits.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             listBoxAddVisits.FormattingEnabled = true;
             listBoxAddVisits.ItemHeight = 20;
-            listBoxAddVisits.Location = new Point(40, 109);
+            listBoxAddVisits.Location = new Point(30, 109);
             listBoxAddVisits.Name = "listBoxAddVisits";
             listBoxAddVisits.Size = new Size(717, 504);
             listBoxAddVisits.TabIndex = 11;
@@ -275,19 +299,6 @@
             buttonReload.UseVisualStyleBackColor = false;
             buttonReload.Click += buttonReload_Click;
             // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { запиToolStripMenuItem });
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(113, 28);
-            // 
-            // запиToolStripMenuItem
-            // 
-            запиToolStripMenuItem.Name = "запиToolStripMenuItem";
-            запиToolStripMenuItem.Size = new Size(112, 24);
-            запиToolStripMenuItem.Text = "Запи";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -303,9 +314,9 @@
             listBoxMyServ.BackColor = SystemColors.ControlLight;
             listBoxMyServ.FormattingEnabled = true;
             listBoxMyServ.ItemHeight = 20;
-            listBoxMyServ.Location = new Point(558, 118);
+            listBoxMyServ.Location = new Point(668, 118);
             listBoxMyServ.Name = "listBoxMyServ";
-            listBoxMyServ.Size = new Size(433, 504);
+            listBoxMyServ.Size = new Size(564, 484);
             listBoxMyServ.TabIndex = 14;
             // 
             // label2
@@ -313,7 +324,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(558, 58);
+            label2.Location = new Point(668, 58);
             label2.Name = "label2";
             label2.Size = new Size(185, 39);
             label2.TabIndex = 15;
@@ -325,7 +336,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
             BackgroundImage = Properties.Resources._1670037622_1_kartinkin_net_p_fioletovo_sirenevii_fon_pinterest_2;
-            ClientSize = new Size(1017, 704);
+            ClientSize = new Size(1244, 704);
             Controls.Add(label2);
             Controls.Add(listBoxMyServ);
             Controls.Add(buttonReload);
@@ -346,8 +357,8 @@
             Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -380,10 +391,11 @@
         public ToolStripMenuItem услугиToolStripMenuItem;
         public ToolStripMenuItem салоныToolStripMenuItem;
         private ToolStripMenuItem нестандарныеЗапросыToolStripMenuItem;
-        private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem запиToolStripMenuItem;
         public Label label1;
         public ListBox listBoxMyServ;
         public Label label2;
+        private ToolStripMenuItem удалитьЧеловекаToolStripMenuItem;
+        private ContextMenuStrip contextMenuStrip2;
+        private ToolStripMenuItem удалитьToolStripMenuItem2;
     }
 }

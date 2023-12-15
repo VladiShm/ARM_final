@@ -51,6 +51,7 @@ namespace ARM_final
                             mainForm.Show();
                             mainForm.Visits();
                             mainForm.listBoxMyServ.Visible = false;
+                            mainForm.label2.Visible = false;
                             this.Hide();
                         }
                         break;

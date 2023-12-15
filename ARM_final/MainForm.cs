@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using arm_rental;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace ARM_final
 {
     public partial class MainForm : Form
     {
+        List<int> idVisits = new List<int>();
+        public static int id_vis;
+        SqlCommands sqlCommands = new SqlCommands();
 
         string master, branch, time;
         List<int> idFreeVisits = new List<int>();
@@ -49,7 +53,7 @@ namespace ARM_final
             {
                 DataTable dt = commands.GetData(@"select v.id, m.name, m.surname, address, date from visits as v join master as m on 
                                             m.id = v.master_id join branches as b on b.id = v.branch_id 
-                                            where v.client_id is null");
+                                            where v.client_id is null order by date");
                 foreach (DataRow dr in dt.Rows)
                 {
                     idFreeVisits.Add(int.Parse(dr["id"].ToString()));
@@ -180,7 +184,7 @@ namespace ARM_final
             {
                 DataTable dt = commands.GetData(@"select v.id, m.name, m.surname, address, date from visits as v join master as m on 
                                             m.id = v.master_id join branches as b on b.id = v.branch_id 
-                                            where v.client_id is not null");
+                                            where v.client_id is not null order by date");
                 foreach (DataRow dr in dt.Rows)
                 {
                     master = $"Мастер: {dr["name"].ToString()} {dr["surname"].ToString()}";
@@ -188,6 +192,8 @@ namespace ARM_final
                     time = $"Дата и время: {dr["date"].ToString()}";
                     string info = $"{master} ║ {branch} ║ {time}";
                     listBoxAddVisits.Items.Add(info);
+                    idVisits.Add(Convert.ToInt32(dr["id"]));
+
                 }
             }
             catch (Exception e)
@@ -202,6 +208,7 @@ namespace ARM_final
             listBoxVisits.Items.Clear();
             Visits();
             FreeVisits();
+            MyVisits();
         }
 
         private void удалитьToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -248,6 +255,70 @@ namespace ARM_final
         {
             SearchSql searchSql = new SearchSql();
             searchSql.Show();
+        }
+
+        private void удалитьЧеловекаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteClients deleteClients = new DeleteClients();
+            deleteClients.Show();
+        }
+
+        private void удалитьToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            id_vis = idVisits[Convert.ToInt32(listBoxAddVisits.SelectedIndex)];
+
+            try
+            {
+
+                sqlCommands.Connection();
+                string command2 = "delete from visits where id = @id";
+                using (var cmd = new NpgsqlCommand(command2, sqlCommands.strCon))
+                {
+                    cmd.Parameters.AddWithValue("id", id_vis);
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void MyVisits()
+        {
+            try
+            {
+                listBoxMyServ.Items.Clear();
+                sqlCommands.Connection();
+                int client_id;
+                string command = "select id from client where id_account = @id_acc";
+                using (var cmd = new NpgsqlCommand(command, sqlCommands.strCon))
+                {
+                    cmd.Parameters.AddWithValue("id_acc", Autorization.acc_id);
+                    client_id = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+                DataTable dt = new DataTable();
+                NpgsqlDataReader dr;
+                string command2 = "select b.address, s.name, s.price from visits as v join services as s on v.servieces_id = s.id join branches as b on v.branch_id = b.id where client_id = @id_client";
+                using (var cmd = new NpgsqlCommand(command2, sqlCommands.strCon))
+                {
+                    cmd.Parameters.AddWithValue("id_client", client_id);
+                    dr = cmd.ExecuteReader();
+                    dt.Load(dr);
+                    string row;
+                    foreach (DataRow i in dt.Rows)
+                    {
+                        row = $"Адрес: {i["address"]} ║ Мастер: {i["name"]} ║ Цена: {i["price"]}";
+                        listBoxMyServ.Items.Add(row);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
