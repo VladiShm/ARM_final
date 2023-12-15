@@ -25,6 +25,10 @@ namespace ARM_final
         private void AddClients_Load(object sender, EventArgs e)
         {
             CenterToParent();
+            label1.BackColor = Color.Transparent;
+            labelLogin.BackColor = Color.Transparent;
+            labelPassword.BackColor = Color.Transparent;
+            labelRole.BackColor = Color.Transparent;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)

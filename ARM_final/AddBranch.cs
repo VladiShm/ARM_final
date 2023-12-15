@@ -48,7 +48,7 @@ namespace ARM_final
             }
         }
 
-       
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -65,6 +65,15 @@ namespace ARM_final
 
         private void textBoxPhone_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void AddBranch_Load(object sender, EventArgs e)
+        {
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label2.BackColor = System.Drawing.Color.Transparent;
+            label3.BackColor = System.Drawing.Color.Transparent;
+            label4.BackColor = System.Drawing.Color.Transparent;
+
         }
     }
 }

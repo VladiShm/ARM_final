@@ -26,6 +26,7 @@ namespace ARM_final
 
         private void DeleteReloadForm_Load(object sender, EventArgs e)
         {
+            label1.BackColor = System.Drawing.Color.Transparent;
             commands.Connection();
             try
             {

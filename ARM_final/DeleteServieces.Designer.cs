@@ -37,7 +37,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(25, 27);
+            label1.Location = new Point(37, 52);
             label1.Name = "label1";
             label1.Size = new Size(77, 28);
             label1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(25, 75);
+            comboBox1.Location = new Point(37, 105);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(260, 28);
             comboBox1.TabIndex = 1;
@@ -54,7 +54,8 @@
             // 
             // buttonDelete
             // 
-            buttonDelete.Location = new Point(176, 165);
+            buttonDelete.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDelete.Location = new Point(216, 197);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(109, 43);
             buttonDelete.TabIndex = 2;
@@ -66,7 +67,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(313, 230);
+            BackgroundImage = Properties.Resources._1670037622_1_kartinkin_net_p_fioletovo_sirenevii_fon_pinterest_2;
+            ClientSize = new Size(337, 252);
             Controls.Add(buttonDelete);
             Controls.Add(comboBox1);
             Controls.Add(label1);

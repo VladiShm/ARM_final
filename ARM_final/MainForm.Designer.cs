@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             добавитьToolStripMenuItem = new ToolStripMenuItem();
             удалитьToolStripMenuItem = new ToolStripMenuItem();
@@ -45,31 +46,23 @@
             салоныToolStripMenuItem = new ToolStripMenuItem();
             добавитьToolStripMenuItem4 = new ToolStripMenuItem();
             удалитьToolStripMenuItem4 = new ToolStripMenuItem();
+            нестандарныеЗапросыToolStripMenuItem = new ToolStripMenuItem();
             listBoxVisits = new ListBox();
             btnSignUp = new Button();
             pictureBox1 = new PictureBox();
             labelCurrVisits = new Label();
             labelFreeVisits = new Label();
-            pictureBox3 = new PictureBox();
-            button1 = new Button();
             listBoxAddVisits = new ListBox();
             buttonAddVisits = new Button();
             buttonReload = new Button();
-            pictureBox8 = new PictureBox();
-            pictureBox9 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox4 = new PictureBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            запиToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
+            listBoxMyServ = new ListBox();
+            label2 = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // добавитьToolStripMenuItem
@@ -111,10 +104,10 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { клиентыToolStripMenuItem, услугиToolStripMenuItem, салоныToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { клиентыToolStripMenuItem, услугиToolStripMenuItem, салоныToolStripMenuItem, нестандарныеЗапросыToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(820, 31);
+            menuStrip1.Size = new Size(1017, 31);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -183,24 +176,32 @@
             удалитьToolStripMenuItem4.Text = "Редактировать | Удалить";
             удалитьToolStripMenuItem4.Click += удалитьToolStripMenuItem4_Click;
             // 
+            // нестандарныеЗапросыToolStripMenuItem
+            // 
+            нестандарныеЗапросыToolStripMenuItem.Name = "нестандарныеЗапросыToolStripMenuItem";
+            нестандарныеЗапросыToolStripMenuItem.Size = new Size(189, 27);
+            нестандарныеЗапросыToolStripMenuItem.Text = "Нестандарные запросы";
+            нестандарныеЗапросыToolStripMenuItem.Click += нестандарныеЗапросыToolStripMenuItem_Click;
+            // 
             // listBoxVisits
             // 
             listBoxVisits.BackColor = SystemColors.ControlLight;
             listBoxVisits.DrawMode = DrawMode.OwnerDrawFixed;
             listBoxVisits.FormattingEnabled = true;
             listBoxVisits.ItemHeight = 20;
-            listBoxVisits.Location = new Point(12, 103);
+            listBoxVisits.Location = new Point(30, 118);
             listBoxVisits.Name = "listBoxVisits";
-            listBoxVisits.Size = new Size(598, 504);
+            listBoxVisits.Size = new Size(482, 504);
             listBoxVisits.TabIndex = 3;
             listBoxVisits.DrawItem += listBox1_DrawItem;
             listBoxVisits.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // btnSignUp
             // 
-            btnSignUp.Location = new Point(12, 628);
+            btnSignUp.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSignUp.Location = new Point(30, 650);
             btnSignUp.Name = "btnSignUp";
-            btnSignUp.Size = new Size(143, 39);
+            btnSignUp.Size = new Size(159, 43);
             btnSignUp.TabIndex = 4;
             btnSignUp.Text = "Записаться";
             btnSignUp.UseVisualStyleBackColor = true;
@@ -208,10 +209,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImage = Properties.Resources.Снимок_экрана_2023_12_15_193020;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(761, 45);
+            pictureBox1.Location = new Point(947, 40);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(47, 44);
+            pictureBox1.Size = new Size(58, 57);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -230,32 +232,12 @@
             // labelFreeVisits
             // 
             labelFreeVisits.AutoSize = true;
-            labelFreeVisits.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelFreeVisits.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             labelFreeVisits.Location = new Point(12, 58);
             labelFreeVisits.Name = "labelFreeVisits";
-            labelFreeVisits.Size = new Size(226, 31);
+            labelFreeVisits.Size = new Size(278, 39);
             labelFreeVisits.TabIndex = 8;
             labelFreeVisits.Text = "Доступные записи";
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(669, 232);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(78, 76);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 9;
-            pictureBox3.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(680, 634);
-            button1.Name = "button1";
-            button1.Size = new Size(128, 50);
-            button1.TabIndex = 10;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // listBoxAddVisits
             // 
@@ -263,16 +245,17 @@
             listBoxAddVisits.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             listBoxAddVisits.FormattingEnabled = true;
             listBoxAddVisits.ItemHeight = 20;
-            listBoxAddVisits.Location = new Point(12, 121);
+            listBoxAddVisits.Location = new Point(40, 109);
             listBoxAddVisits.Name = "listBoxAddVisits";
-            listBoxAddVisits.Size = new Size(598, 504);
+            listBoxAddVisits.Size = new Size(717, 504);
             listBoxAddVisits.TabIndex = 11;
             listBoxAddVisits.DrawItem += listBoxAddVisits_DrawItem_1;
             listBoxAddVisits.SelectedIndexChanged += listBoxAddVisits_SelectedIndexChanged;
             // 
             // buttonAddVisits
             // 
-            buttonAddVisits.Location = new Point(12, 646);
+            buttonAddVisits.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAddVisits.Location = new Point(30, 645);
             buttonAddVisits.Name = "buttonAddVisits";
             buttonAddVisits.Size = new Size(159, 47);
             buttonAddVisits.TabIndex = 12;
@@ -285,91 +268,71 @@
             buttonReload.BackColor = Color.Thistle;
             buttonReload.BackgroundImage = (Image)resources.GetObject("buttonReload.BackgroundImage");
             buttonReload.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonReload.Location = new Point(177, 631);
+            buttonReload.Location = new Point(213, 654);
             buttonReload.Name = "buttonReload";
             buttonReload.Size = new Size(44, 39);
             buttonReload.TabIndex = 13;
             buttonReload.UseVisualStyleBackColor = false;
             buttonReload.Click += buttonReload_Click;
             // 
-            // pictureBox8
+            // contextMenuStrip1
             // 
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(669, 404);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(78, 74);
-            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox8.TabIndex = 18;
-            pictureBox8.TabStop = false;
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { запиToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(113, 28);
             // 
-            // pictureBox9
+            // запиToolStripMenuItem
             // 
-            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(680, 153);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(54, 54);
-            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox9.TabIndex = 19;
-            pictureBox9.TabStop = false;
+            запиToolStripMenuItem.Name = "запиToolStripMenuItem";
+            запиToolStripMenuItem.Size = new Size(112, 24);
+            запиToolStripMenuItem.Text = "Запи";
             // 
-            // pictureBox5
+            // label1
             // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(680, 87);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(54, 45);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 21;
-            pictureBox5.TabStop = false;
+            label1.AutoSize = true;
+            label1.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(12, 58);
+            label1.Name = "label1";
+            label1.Size = new Size(245, 39);
+            label1.TabIndex = 7;
+            label1.Text = "Текущие записи";
             // 
-            // pictureBox6
+            // listBoxMyServ
             // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(680, 583);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(54, 45);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 22;
-            pictureBox6.TabStop = false;
+            listBoxMyServ.BackColor = SystemColors.ControlLight;
+            listBoxMyServ.FormattingEnabled = true;
+            listBoxMyServ.ItemHeight = 20;
+            listBoxMyServ.Location = new Point(558, 118);
+            listBoxMyServ.Name = "listBoxMyServ";
+            listBoxMyServ.Size = new Size(433, 504);
+            listBoxMyServ.TabIndex = 14;
             // 
-            // pictureBox2
+            // label2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(680, 326);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(54, 54);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 23;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(680, 502);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(54, 54);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 24;
-            pictureBox4.TabStop = false;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(558, 58);
+            label2.Name = "label2";
+            label2.Size = new Size(185, 39);
+            label2.TabIndex = 15;
+            label2.Text = "Мои записи";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Thistle;
-            ClientSize = new Size(820, 686);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox6);
-            Controls.Add(pictureBox5);
-            Controls.Add(pictureBox9);
-            Controls.Add(pictureBox8);
+            BackColor = Color.Lavender;
+            BackgroundImage = Properties.Resources._1670037622_1_kartinkin_net_p_fioletovo_sirenevii_fon_pinterest_2;
+            ClientSize = new Size(1017, 704);
+            Controls.Add(label2);
+            Controls.Add(listBoxMyServ);
             Controls.Add(buttonReload);
             Controls.Add(buttonAddVisits);
             Controls.Add(listBoxAddVisits);
-            Controls.Add(button1);
-            Controls.Add(pictureBox3);
             Controls.Add(labelFreeVisits);
+            Controls.Add(label1);
             Controls.Add(labelCurrVisits);
             Controls.Add(pictureBox1);
             Controls.Add(btnSignUp);
@@ -384,13 +347,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -412,8 +369,6 @@
         public ListBox listBoxVisits;
         public Label labelCurrVisits;
         public Label labelFreeVisits;
-        private PictureBox pictureBox3;
-        private Button button1;
         private ToolStripMenuItem отчетToolStripMenuItem;
         private ToolStripMenuItem добавитьToolStripMenuItem3;
         public ListBox listBoxAddVisits;
@@ -422,13 +377,13 @@
         private ToolStripMenuItem удалитьToolStripMenuItem3;
         private ToolStripMenuItem добавитьToolStripMenuItem4;
         private ToolStripMenuItem удалитьToolStripMenuItem4;
-        private PictureBox pictureBox8;
-        private PictureBox pictureBox9;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox6;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox4;
         public ToolStripMenuItem услугиToolStripMenuItem;
         public ToolStripMenuItem салоныToolStripMenuItem;
+        private ToolStripMenuItem нестандарныеЗапросыToolStripMenuItem;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem запиToolStripMenuItem;
+        public Label label1;
+        public ListBox listBoxMyServ;
+        public Label label2;
     }
 }

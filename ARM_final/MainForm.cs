@@ -22,83 +22,20 @@ namespace ARM_final
         public MainForm()
         {
             InitializeComponent();
+            labelFreeVisits.BackColor = Color.Transparent;
+            labelCurrVisits.BackColor = Color.Transparent;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             commands.Connection();
+            label1.BackColor = Color.Transparent;
+            labelCurrVisits.BackColor = Color.Transparent;
+            labelFreeVisits.BackColor = Color.Transparent;
             //LoadBranches();
             CenterToParent();
             //Visits();
         }
-        //private void LoadBranches()
-        //{
-        //    try
-        //    {
-        //        treeView.Nodes.Clear();
-        //        DataTable dt = commands.GetData(@"select name, id from branches");
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            string branchName = dr["name"].ToString();
-        //            var node = new TreeNode(branchName, 0, 0);
-        //            treeView.Nodes.Add(node);
-        //            node.Tag = dr["id"].ToString();
-        //            LoadVisits(node, (int)dr["id"]);
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message);
-        //    }
-        //}
-
-        //private void LoadVisits(TreeNode parent, int branch_id)
-        //{
-        //    try
-        //    {
-        //        DataTable dt = commands.GetData(@"select v.id, m.name, m.surname from visits as v join master as m on m.id = v.master_id where branch_id = @branch_id; ", branch_id, "@branch_id");
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            string visitDate = $"Мастер: {dr["name"].ToString()} {dr["surname"].ToString()}";
-        //            var node = new TreeNode(visitDate, 1, 1);
-        //            parent.Nodes.Add(node);
-        //            node.Tag = dr["id"].ToString();
-        //            LoadServices(node, (int)dr["id"]);
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message);
-        //    }
-        //}
-
-        //private void LoadServices(TreeNode parent, int visit_id)
-        //{
-        //    try
-        //    {
-        //        DataTable dt = commands.GetData(@"select id, name from services where visit_id = @visit_id", visit_id, "visit_id");
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            string service = dr["name"].ToString();
-        //            var node = new TreeNode(service, 2, 2);
-        //            parent.Nodes.Add(node);
-        //            node.Tag = dr["id"].ToString();
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message);
-        //    }
-        //}
-
-        ////добавление новых клиентов/мастеров
-        //private void добавитьToolStripMenuItem2_Click(object sender, EventArgs e)
-        //{
-        //    addAccounts addClients = new addAccounts();
-        //    addClients.Show();
-        //}
-
-        ////редактирование новых клиентов/мастеров
 
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -206,8 +143,7 @@ namespace ARM_final
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SearchSql searchSql = new SearchSql();
-            searchSql.Show();
+
         }
 
         private void отчетToolStripMenuItem_Click(object sender, EventArgs e)
@@ -306,6 +242,12 @@ namespace ARM_final
             DeleteReloadForm deleteReloadForm = new DeleteReloadForm();
             deleteReloadForm.Show();
 
+        }
+
+        private void нестандарныеЗапросыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchSql searchSql = new SearchSql();
+            searchSql.Show();
         }
     }
 }

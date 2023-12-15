@@ -14,6 +14,11 @@ namespace ARM_final
         private void AddMaster_Load(object sender, EventArgs e)
         {
             CenterToParent();
+            label1.BackColor = Color.Transparent;
+            name.BackColor = Color.Transparent;
+            surname.BackColor = Color.Transparent;
+            grade.BackColor = Color.Transparent;
+            phone.BackColor = Color.Transparent;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

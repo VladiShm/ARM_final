@@ -51,6 +51,7 @@ namespace ARM_final
 
         private void DeleteServieces_Load(object sender, EventArgs e)
         {
+            label1.BackColor = System.Drawing.Color.Transparent;
             commands.Connection();
             try
             {

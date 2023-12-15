@@ -16,6 +16,10 @@ namespace ARM_final
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            label3.BackColor = Color.Transparent;
+            cbPassword.BackColor = Color.Transparent;
             commands.Connection();
             CenterToScreen();
             cbPassword.Checked = true;
@@ -46,6 +50,7 @@ namespace ARM_final
                             mainForm.labelFreeVisits.Visible = false;
                             mainForm.Show();
                             mainForm.Visits();
+                            mainForm.listBoxMyServ.Visible = false;
                             this.Hide();
                         }
                         break;
@@ -86,6 +91,11 @@ namespace ARM_final
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

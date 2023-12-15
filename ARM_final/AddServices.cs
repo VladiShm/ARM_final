@@ -55,5 +55,12 @@ namespace ARM_final
         {
 
         }
+
+        private void AddServices_Load(object sender, EventArgs e)
+        {
+            label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            labelPrice.BackColor = Color.Transparent;
+        }
     }
 }

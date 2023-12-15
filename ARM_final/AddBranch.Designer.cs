@@ -35,11 +35,12 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // textBoxAddress
             // 
-            textBoxAddress.Location = new Point(217, 71);
+            textBoxAddress.Location = new Point(217, 119);
             textBoxAddress.Name = "textBoxAddress";
             textBoxAddress.Size = new Size(212, 27);
             textBoxAddress.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(217, 127);
+            textBoxName.Location = new Point(217, 175);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(212, 27);
             textBoxName.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // textBoxPhone
             // 
-            textBoxPhone.Location = new Point(217, 178);
+            textBoxPhone.Location = new Point(217, 226);
             textBoxPhone.Name = "textBoxPhone";
             textBoxPhone.Size = new Size(212, 27);
             textBoxPhone.TabIndex = 2;
@@ -63,9 +64,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(316, 251);
+            button1.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(304, 298);
             button1.Name = "button1";
-            button1.Size = new Size(113, 32);
+            button1.Size = new Size(125, 44);
             button1.TabIndex = 3;
             button1.Text = "Добавить";
             button1.UseVisualStyleBackColor = true;
@@ -75,7 +77,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(59, 68);
+            label1.Location = new Point(59, 116);
             label1.Name = "label1";
             label1.Size = new Size(70, 28);
             label1.TabIndex = 4;
@@ -86,7 +88,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(59, 124);
+            label2.Location = new Point(59, 172);
             label2.Name = "label2";
             label2.Size = new Size(101, 28);
             label2.TabIndex = 5;
@@ -97,18 +99,30 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(59, 175);
+            label3.Location = new Point(59, 223);
             label3.Name = "label3";
             label3.Size = new Size(100, 28);
             label3.TabIndex = 6;
             label3.Text = "Телефон";
             label3.Click += label3_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(150, 34);
+            label4.Name = "label4";
+            label4.Size = new Size(168, 32);
+            label4.TabIndex = 7;
+            label4.Text = "Новый салон";
+            // 
             // AddBranch
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(497, 306);
+            BackgroundImage = Properties.Resources._1670037622_1_kartinkin_net_p_fioletovo_sirenevii_fon_pinterest_2;
+            ClientSize = new Size(497, 368);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -118,6 +132,7 @@
             Controls.Add(textBoxAddress);
             Name = "AddBranch";
             Text = "AddBranch";
+            Load += AddBranch_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,5 +146,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Label label4;
     }
 }

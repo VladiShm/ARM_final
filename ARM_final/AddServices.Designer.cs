@@ -33,13 +33,14 @@
             buttonAdd = new Button();
             labelPrice = new Label();
             textBoxPrice = new TextBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(29, 28);
+            label1.Location = new Point(67, 93);
             label1.Name = "label1";
             label1.Size = new Size(172, 28);
             label1.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(29, 68);
+            textBoxName.Location = new Point(67, 134);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(264, 27);
             textBoxName.TabIndex = 1;
@@ -55,9 +56,10 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(188, 237);
+            buttonAdd.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAdd.Location = new Point(238, 306);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(105, 39);
+            buttonAdd.Size = new Size(111, 46);
             buttonAdd.TabIndex = 2;
             buttonAdd.Text = "Добавить";
             buttonAdd.UseVisualStyleBackColor = true;
@@ -67,7 +69,7 @@
             // 
             labelPrice.AutoSize = true;
             labelPrice.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelPrice.Location = new Point(29, 134);
+            labelPrice.Location = new Point(67, 200);
             labelPrice.Name = "labelPrice";
             labelPrice.Size = new Size(136, 28);
             labelPrice.TabIndex = 3;
@@ -75,17 +77,29 @@
             // 
             // textBoxPrice
             // 
-            textBoxPrice.Location = new Point(29, 174);
+            textBoxPrice.Location = new Point(67, 240);
             textBoxPrice.Name = "textBoxPrice";
             textBoxPrice.Size = new Size(264, 27);
             textBoxPrice.TabIndex = 4;
             textBoxPrice.TextChanged += textBoxPrice_TextChanged;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(108, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(170, 32);
+            label2.TabIndex = 5;
+            label2.Text = "Новая услуга";
+            // 
             // AddServices
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(321, 308);
+            BackgroundImage = Properties.Resources._1670037622_1_kartinkin_net_p_fioletovo_sirenevii_fon_pinterest_2;
+            ClientSize = new Size(389, 364);
+            Controls.Add(label2);
             Controls.Add(textBoxPrice);
             Controls.Add(labelPrice);
             Controls.Add(buttonAdd);
@@ -93,6 +107,7 @@
             Controls.Add(label1);
             Name = "AddServices";
             Text = "AddServices";
+            Load += AddServices_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -104,5 +119,6 @@
         private Button buttonAdd;
         private Label labelPrice;
         private TextBox textBoxPrice;
+        private Label label2;
     }
 }

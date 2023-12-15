@@ -160,5 +160,19 @@ namespace ARM_final
         {
 
         }
+
+        private void labelClient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddVisits_Load(object sender, EventArgs e)
+        {
+            labelAdress.BackColor = Color.Transparent;
+            labelClient.BackColor = Color.Transparent;
+            labelDate.BackColor = Color.Transparent;
+            labelMaster.BackColor = Color.Transparent;
+            labelServices.BackColor = Color.Transparent;
+        }
     }
 }

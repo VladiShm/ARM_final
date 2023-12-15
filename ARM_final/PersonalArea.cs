@@ -25,6 +25,9 @@ namespace ARM_final
 
         private void PersonalArea_Load(object sender, EventArgs e)
         {
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label2.BackColor = System.Drawing.Color.Transparent;
+            label3.BackColor = System.Drawing.Color.Transparent;
             CenterToParent();
             LoadInfo();
         }

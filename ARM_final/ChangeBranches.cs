@@ -26,7 +26,7 @@ namespace ARM_final
         {
             try
             {
-                
+
                 string sql = $"UPDATE branches SET name = @name, address = @address, phone = @phone WHERE name = @old_name";
                 commands.Connection();
                 using (var cmd = new NpgsqlCommand(sql, commands.strCon))
@@ -72,6 +72,14 @@ namespace ARM_final
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ChangeBranches_Load(object sender, EventArgs e)
+        {
+            label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            label3.BackColor = Color.Transparent;
+            label4.BackColor = Color.Transparent;
         }
     }
 }

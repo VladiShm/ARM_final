@@ -63,6 +63,36 @@ namespace ARM_final.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1670037622_1_kartinkin_net_p_fioletovo_sirenevii_fon_pinterest_2 {
+            get {
+                object obj = ResourceManager.GetObject("1670037622_1-kartinkin-net-p-fioletovo-sirenevii-fon-pinterest-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _28776f90a2a1a93b8df2f791e87e75d1 {
+            get {
+                object obj = ResourceManager.GetObject("28776f90a2a1a93b8df2f791e87e75d1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beauty_Land {
+            get {
+                object obj = ResourceManager.GetObject("Beauty_Land", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download_4458043 {
             get {
                 object obj = ResourceManager.GetObject("download_4458043", resourceCulture);
@@ -153,6 +183,16 @@ namespace ARM_final.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images__4_ {
+            get {
+                object obj = ResourceManager.GetObject("images (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap line_chart_516975 {
             get {
                 object obj = ResourceManager.GetObject("line-chart_516975", resourceCulture);
@@ -166,6 +206,26 @@ namespace ARM_final.Properties {
         internal static System.Drawing.Bitmap Lock {
             get {
                 object obj = ResourceManager.GetObject("Lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngegg__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pngegg (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngegg__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("pngegg (1) (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +266,16 @@ namespace ARM_final.Properties {
         internal static System.Drawing.Bitmap Снимок_экрана_2023_11_28_111134 {
             get {
                 object obj = ResourceManager.GetObject("Снимок экрана 2023-11-28 111134", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Снимок_экрана_2023_12_15_193020 {
+            get {
+                object obj = ResourceManager.GetObject("Снимок экрана 2023-12-15 193020", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
